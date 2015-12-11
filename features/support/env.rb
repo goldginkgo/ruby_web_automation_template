@@ -10,7 +10,7 @@ ActiveSupport::Dependencies.autoload_paths << File.expand_path(File.join(Dir.pwd
 Capybara.configure do |config|
   config.run_server = false
   config.ignore_hidden_elements = false
-  config.default_wait_time = 10
+  config.default_max_wait_time= 10
   config.default_driver = :selenium_firefox
   config.match = :prefer_exact
 end
