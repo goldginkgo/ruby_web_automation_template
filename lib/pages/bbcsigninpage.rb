@@ -1,4 +1,4 @@
-class Pages::Bbcsignin < SitePrism::Page
+class Pages::Bbcsigninpage < SitePrism::Page
 
   set_url "https://ssl.bbc.co.uk/id/signin?ptrt=http%3A%2F%2Fwww.bbc.co.uk%2Fhome%2Fcustomise"
   set_url_matcher /ssl.bbc.co.uk/

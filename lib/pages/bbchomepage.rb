@@ -1,4 +1,4 @@
-class Pages::Bbchome < SitePrism::Page
+class Pages::Bbchomepage < SitePrism::Page
 
   set_url "http://www.bbc.co.uk/"
   set_url_matcher /bbc.co.uk/
