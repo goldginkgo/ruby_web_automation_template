@@ -1,3 +1,5 @@
+This uses markdown
+
 # Ruby Web Automation Template
 
 This template is aimed at those who are interested in web automation and in doing it in what some would deem to be a good practice.
