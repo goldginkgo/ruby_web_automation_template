@@ -26,7 +26,13 @@ if ENV['chrome']
 end
 elsif ENV['poltergeist']
   Capybara.default_driver = :poltergeist
-  Capybara.register_driver :poltergeist do |app| # Registration of chrome driver
-    Capybara::Poltergeist::Driver.new(app, :js_errors => false)
+  Capybara.register_driver :poltergeist do |app|
+    options = {
+       :js_errors => true,
+       :timeout => 120,
+       :debug => false,
+       :inspector => true,
+   }
+  Capybara::Poltergeist::Driver.new(app, options)
 end
 end
