@@ -1,6 +1,7 @@
 Given(/^I can access the BBC home page$/) do
   @Bbcwebsite = Bbcwebsite.new
 	@Bbcwebsite.bbc_home_page.load
+  @Bbcwebsite.bbc_home_page.capture_page_traffic
 	@Bbcwebsite.bbc_home_page.displayed?
 end
 
