@@ -2,6 +2,7 @@ require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'active_support'
+require 'phantomjs/poltergeist'
 
 # The below active support entry ensures that all files in the 'lib' foolder are autoloaded as part of a program run
 # information on ActiveSupport can be found here in regards to rails applications (although it provides a useful guide)
@@ -14,10 +15,18 @@ Capybara.configure do |config|
   config.run_server = false #To ensure a Rack server does not start
   config.ignore_hidden_elements = false #to ensure that all hidden elements on a page are recorded/available
   config.default_max_wait_time= 10 #wait time for asynchronus processes to finsh
-  config.default_driver = :selenium_chrome #Default browser - input :selenium_chrome to use chrome browser as stated in the driver registration below
+  #config.default_driver = :selenium_chrome #Default browser - input :selenium_chrome to use chrome browser as stated in the driver registration below
   config.match = :prefer_exact #this setting is to ensure Capybara has specific matching rather than fuzzy logic
 end
 
-Capybara.register_driver :selenium_chrome do |app| # Registration of chrome driver
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+if ENV['chrome']
+  Capybara.default_driver = :selenium_chrome
+  Capybara.register_driver :selenium_chrome do |app| # Registration of chrome driver
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+elsif ENV['poltergeist']
+  Capybara.default_driver = :poltergeist
+  Capybara.register_driver :poltergeist do |app| # Registration of chrome driver
+    Capybara::Poltergeist::Driver.new(app, :js_errors => false)
+end
 end

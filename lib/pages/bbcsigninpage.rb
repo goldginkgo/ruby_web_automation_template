@@ -16,8 +16,8 @@ def confirm_uncheck_of_rememeber_me
 end
 
 def enter_login_details
-  fill_in 'unique', :with => 'username'
-  fill_in 'password', :with => 'password'
+  fill_in 'unique', :with => 'mangotester1234@gmail.com'
+  fill_in 'password', :with => 'infuseit1234'
 end
 
 
